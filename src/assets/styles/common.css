@@ -1,0 +1,51 @@
+html,
+body,
+#app {
+    height: 100%;
+}
+
+.wrapper {
+    padding: 10px 10px 0 50px;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* 设置滚动条的样式 */
+
+::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+/* 滚动槽 */
+
+::-webkit-scrollbar-track {
+
+
+    border-radius: 10px;
+
+}
+
+/* 滚动条滑块 */
+
+::-webkit-scrollbar-thumb {
+
+    border-radius: 10px;
+
+    background: rgba(0, 0, 0, .5);
+
+
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+
+    background: #446a37;
+
+}

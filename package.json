@@ -7,12 +7,17 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@wangeditor/editor": "^5.1.14",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "element-plus": "^2.2.15",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@types/node": "^18.7.14",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-typescript": "~5.0.0",

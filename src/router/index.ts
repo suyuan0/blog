@@ -1,25 +1,88 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-
-const routes: Array<RouteRecordRaw> = [
+import { createRouter, createWebHashHistory } from "vue-router";
+import layout from "../layout/index.vue";
+const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    name: "layout",
+    component: layout,
+    redirect: "/home",
+    children: [
+      {
+        path: "/home",
+        name: "home",
+        meta: {
+          title: "主页",
+        },
+        component: () => import("@/views/home/index.vue"),
+      },
+      {
+        path: "/brief",
+        name: "brief",
+        meta: {
+          title: "简介",
+        },
+        component: () => import("@/views/brief/index.vue"),
+      },
+      {
+        path: "/works",
+        name: "works",
+        meta: {
+          title: "我的作品",
+        },
+        component: () => import("@/views/works/index.vue"),
+      },
+      {
+        path: "/career",
+        name: "career",
+        meta: {
+          title: "我的事业",
+        },
+        component: () => import("@/views/career/index.vue"),
+      },
+      {
+        path: "/diary",
+        name: "diary",
+        meta: {
+          title: "我的日记",
+        },
+        component: () => import("@/views/diary/index.vue"),
+      },
+      {
+        path: "/contact",
+        name: "contact",
+        meta: {
+          title: "联系方式",
+        },
+        component: () => import("@/views/contact/index.vue"),
+      },
+      {
+        path: "/contribute",
+        name: "contribute",
+        meta: {
+          title: "投稿",
+        },
+        component: () => import("@/views/contribute/index.vue"),
+      },
+    ],
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+    path: "/article/detail/:id",
+    name: "articleDetail",
+    meta: {
+      title: "详情",
+    },
+    component: () => import("@/views/article-detail/index.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  next();
+  document.title = <string>to.meta.title || "个人博客";
+});
+
+export default router;
